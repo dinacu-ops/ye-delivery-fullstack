@@ -29,6 +29,9 @@ import {
   Moon,
   Bell,
   Plus,
+  Github,
+  Download,
+  ExternalLink,
   Home,
   Briefcase,
   User
@@ -55,6 +58,10 @@ const TRANSLATIONS = {
     payWith: "Pay with",
     settings: "Settings",
     language: "Language",
+    downloadExport: "Download & Export",
+    exportGithub: "Export to GitHub",
+    downloadZip: "Download ZIP",
+    exportInstructions: "Use the AI Studio settings menu to export your application source code.",
     theme: "Appearance",
     lightMode: "Light",
     darkMode: "Dark",
@@ -118,6 +125,10 @@ const TRANSLATIONS = {
     payWith: "በዚህ ይክፈሉ",
     settings: "ቅንብሮች",
     language: "ቋንቋ",
+    downloadExport: "አውርድ እና ላክ",
+    exportGithub: "ወደ GitHub ላክ",
+    downloadZip: "ZIP አውርድ",
+    exportInstructions: "የመተግበሪያዎን ምንጭ ኮድ ለመላክ የ AI Studio ቅንብሮችን ምናሌ ይጠቀሙ።",
     theme: "ገጽታ",
     lightMode: "ብርሃን",
     darkMode: "ጨለማ",
@@ -181,6 +192,10 @@ const TRANSLATIONS = {
     payWith: "Kanaan Kafali",
     settings: "Sajoo",
     language: "Afaan",
+    downloadExport: "Buufachuu fi Erguu",
+    exportGithub: "Gara GitHub Ergi",
+    downloadZip: "ZIP Buufadhu",
+    exportInstructions: "Koodii madda pirogiraamii keessanii erguuf minyuu qindaa'ina AI Studio fayyadamaa.",
     theme: "Bifa",
     lightMode: "Ifa",
     darkMode: "Dukkana",
@@ -317,6 +332,7 @@ export default function App() {
   const [activeInput, setActiveInput] = useState<'location' | 'landmark' | null>(null);
   const [trafficLevel, setTrafficLevel] = useState<'Low' | 'Moderate' | 'Heavy'>('Moderate');
   const [showPriceBreakdown, setShowPriceBreakdown] = useState(false);
+  const [showExportModal, setShowExportModal] = useState(false);
   const [calculatedPrice, setCalculatedPrice] = useState(0);
   const [surgeMultiplier, setSurgeMultiplier] = useState(1.0);
   const [surgeReason, setSurgeReason] = useState<string | null>(null);
@@ -1758,10 +1774,11 @@ export default function App() {
         {view === 'settings' && (
           <motion.div
             key="settings-view"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="flex-1 px-6 pt-4 overflow-y-auto no-scrollbar pb-24"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="absolute inset-0 z-[80] bg-addis-dark px-6 pt-10 overflow-y-auto no-scrollbar pb-24"
           >
             <div className="flex items-center gap-4 mb-10">
               <button 
@@ -1834,6 +1851,66 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              {/* Download & Export Section */}
+              <div className="pt-4 border-t border-addis-border/30">
+                <div className="flex items-center gap-2 mb-4 px-1">
+                  <Download size={16} className="text-electric-yellow" />
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-text opacity-40">{t.downloadExport}</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="bg-addis-surface/50 border border-addis-border/50 rounded-2xl p-4">
+                    <p className="text-[10px] text-addis-muted leading-relaxed mb-4 italic">
+                      {t.exportInstructions}
+                    </p>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center gap-2 text-addis-text">
+                          <Github size={14} className="text-electric-yellow" />
+                          <span className="text-[10px] font-bold uppercase tracking-wider">GitHub</span>
+                        </div>
+                        <p className="text-[8px] text-addis-muted uppercase tracking-tighter">Sync your repo</p>
+                      </div>
+                      
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center gap-2 text-addis-text">
+                          <Download size={14} className="text-electric-yellow" />
+                          <span className="text-[10px] font-bold uppercase tracking-wider">ZIP Archive</span>
+                        </div>
+                        <p className="text-[8px] text-addis-muted uppercase tracking-tighter">Local backup</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button 
+                    onClick={() => setShowExportModal(true)}
+                    className="w-full bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-between hover:border-electric-yellow transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
+                        <Github size={16} />
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">{t.exportGithub}</span>
+                    </div>
+                    <ExternalLink size={14} className="text-addis-muted group-hover:text-electric-yellow transition-colors" />
+                  </button>
+
+                  <button 
+                    onClick={() => setShowExportModal(true)}
+                    className="w-full bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-between hover:border-electric-yellow transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
+                        <Download size={16} />
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">{t.downloadZip}</span>
+                    </div>
+                    <ArrowRight size={14} className="text-addis-muted group-hover:text-electric-yellow transition-colors" />
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div className="flex justify-center mt-12">
@@ -1846,6 +1923,65 @@ export default function App() {
               </button>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showExportModal && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowExportModal(false)}
+              className="absolute inset-0 z-[115] bg-black/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="absolute bottom-0 left-0 right-0 z-[120] bg-addis-card border-t border-addis-border rounded-t-[40px] p-8 pb-12 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+            >
+              <div className="w-12 h-1.5 bg-addis-surface rounded-full mx-auto mb-8" />
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
+                  <Download size={24} />
+                </div>
+                <div>
+                  <h2 className="text-xl font-black tracking-tight text-addis-text">{t.downloadExport}</h2>
+                  <p className="text-[10px] uppercase tracking-widest text-addis-muted">Source Code Export</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 mb-10">
+                <div className="bg-addis-surface border border-addis-border rounded-2xl p-6">
+                  <p className="text-sm text-addis-text leading-relaxed mb-4">
+                    To download the source code or export to GitHub, please use the <strong>AI Studio Settings Menu</strong>:
+                  </p>
+                  <ol className="space-y-4 text-xs text-addis-muted list-decimal pl-4">
+                    <li>Look for the <strong>Settings (Gear Icon)</strong> in the top-right corner of the AI Studio interface.</li>
+                    <li>Select <strong>"Export to GitHub"</strong> to sync with your repository.</li>
+                    <li>Or select <strong>"Download ZIP"</strong> to get a local copy of the project.</li>
+                  </ol>
+                </div>
+                
+                <div className="flex items-center gap-3 p-4 bg-electric-yellow/5 border border-electric-yellow/20 rounded-2xl">
+                  <ShieldCheck size={20} className="text-electric-yellow flex-shrink-0" />
+                  <p className="text-[10px] text-addis-text italic">
+                    This ensures you always have the latest production-ready code for deployment.
+                  </p>
+                </div>
+              </div>
+
+              <button 
+                onClick={() => setShowExportModal(false)}
+                className="w-full bg-electric-yellow text-addis-dark font-black h-16 rounded-[24px] text-base uppercase tracking-widest shadow-[0_20px_40px_rgba(240,255,0,0.2)]"
+              >
+                Got it
+              </button>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
