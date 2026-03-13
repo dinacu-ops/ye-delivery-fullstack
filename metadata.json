@@ -1,0 +1,7 @@
+{
+  "name": "Addis Vibe Delivery",
+  "description": "A premium, trustworthy delivery tool for Addis Ababa with high-visibility design and local landmark logic.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
