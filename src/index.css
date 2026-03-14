@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,29 +11,35 @@
   --color-addis-surface: var(--addis-surface);
   
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 :root {
-  --addis-dark: #0A0A0A;
-  --addis-card: #161616;
+  --addis-dark: #050505;
+  --addis-card: #111111;
   --addis-text: #FFFFFF;
-  --addis-muted: rgba(255, 255, 255, 0.4);
-  --addis-border: rgba(255, 255, 255, 0.1);
-  --addis-surface: rgba(255, 255, 255, 0.05);
+  --addis-muted: #888888;
+  --addis-border: #222222;
+  --addis-surface: #1A1A1A;
 }
 
 .light {
-  --addis-dark: #F5F5F5;
-  --addis-card: #FFFFFF;
-  --addis-text: #0A0A0A;
-  --addis-muted: rgba(0, 0, 0, 0.4);
-  --addis-border: rgba(0, 0, 0, 0.1);
-  --addis-surface: rgba(0, 0, 0, 0.05);
+  --addis-dark: #FFFFFF;
+  --addis-card: #F0F0F0;
+  --addis-text: #000000;
+  --addis-muted: #666666;
+  --addis-border: #DDDDDD;
+  --addis-surface: #E5E5E5;
 }
 
 @layer base {
   body {
-    @apply bg-addis-dark text-addis-text antialiased transition-colors duration-300;
+    @apply bg-addis-dark text-addis-text antialiased transition-colors duration-300 font-sans;
+  }
+  
+  h1, h2, h3 {
+    @apply font-display uppercase tracking-tight;
   }
 }
 
@@ -43,6 +50,14 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  
+  .brutal-border {
+    @apply border-2 border-addis-text;
+  }
+  
+  .shadow-high-contrast {
+    box-shadow: 8px 8px 0px 0px var(--addis-text);
   }
 }
 

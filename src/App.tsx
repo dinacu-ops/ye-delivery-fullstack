@@ -34,77 +34,81 @@ import {
   ExternalLink,
   Home,
   Briefcase,
-  User
+  User,
+  Check,
+  LogOut
 } from 'lucide-react';
 
 // Translations
 const TRANSLATIONS = {
   en: {
-    callDelivery: "Call Delivery",
-    pinging: "Pinging Drivers...",
-    searchingNear: "Searching near",
-    pickupLocation: "Pickup Location",
-    landmark: "Landmark (Optional)",
-    liveCommunity: "Live Community",
-    online: "Online",
-    mins: "Mins",
-    confirmOrder: "Confirm Order",
-    paymentSummary: "Payment Summary",
-    secureWallet: "Secure Wallet",
-    fundsEscrow: "Funds Secured in Escrow",
-    escrowNote: "The driver only gets paid once you give them the delivery code.",
-    deliveryCode: "Enter Delivery Code",
-    pendingBalance: "Pending Balance",
-    payWith: "Pay with",
-    settings: "Settings",
-    language: "Language",
-    downloadExport: "Download & Export",
-    exportGithub: "Export to GitHub",
-    downloadZip: "Download ZIP",
-    exportInstructions: "Use the AI Studio settings menu to export your application source code.",
-    theme: "Appearance",
-    lightMode: "Light",
-    darkMode: "Dark",
-    back: "Back",
-    notifications: "Notifications",
-    noNotifications: "No new notifications",
-    markAllRead: "Mark all as read",
-    newOrder: "New Order Confirmed",
-    driverFound: "Driver Found!",
-    driverArrived: "Driver has arrived",
-    paymentSuccess: "Payment Successful",
-    welcomeBack: "Welcome back to AddisVibe!",
-    savedLocations: "Saved Locations",
-    home: "Home",
-    work: "Work",
-    saveLocation: "Save Location",
-    locationName: "Location Name",
-    locationSaved: "Location Saved",
-    locationDeleted: "Location Deleted",
-    loginTitle: "Welcome to AddisVibe",
-    loginSubtitle: "Enter your Gmail and password to start your premium delivery experience",
-    emailPlaceholder: "yourname@gmail.com",
-    passwordLabel: "Password",
-    passwordPlaceholder: "Enter your password",
-    getStarted: "Get Started",
-    errorGmail: "Please enter a valid Gmail address",
-    errorPassword: "Password must be at least 6 characters",
-    telebirr: "Telebirr",
-    cbe: "CBE Birr",
-    card: "Credit Card",
-    oromia: "Telebirr Oromia Bank",
-    awash: "Awash Bank",
-    baseFee: "Base Fee",
-    priceBreakdown: "Price Breakdown",
-    distance: "Distance",
-    perKmFee: "Per KM Fee",
-    surgeAdjustment: "Surge Adjustment",
-    totalPrice: "Total Price",
-    highDemand: "High demand in area",
-    rushHour: "Rush hour adjustment",
-    weatherSurge: "Weather condition adjustment",
-    surgeNotification: "Surge pricing applied due to {reason}",
-    trafficInfo: "Traffic Info"
+    callDelivery: "FIND BIKE",
+    pinging: "PINGING...",
+    searchingNear: "SCANNING",
+    pickupLocation: "PICKUP",
+    landmark: "LANDMARK",
+    liveCommunity: "LIVE",
+    online: "ACTIVE",
+    mins: "MINS",
+    confirmOrder: "EXECUTE",
+    paymentSummary: "LEDGER",
+    secureWallet: "VAULT",
+    fundsEscrow: "SECURED",
+    escrowNote: "VERIFICATION REQUIRED FOR RELEASE.",
+    deliveryCode: "VERIFY",
+    pendingBalance: "PENDING",
+    payWith: "PAY VIA",
+    settings: "CONFIG",
+    language: "LOCALE",
+    downloadExport: "EXPORT",
+    exportGithub: "GITHUB",
+    downloadZip: "ZIP",
+    exportInstructions: "USE SYSTEM SETTINGS.",
+    theme: "INTERFACE",
+    lightMode: "LIGHT",
+    darkMode: "DARK",
+    back: "RETURN",
+    notifications: "ALERTS",
+    noNotifications: "NONE",
+    markAllRead: "CLEAR",
+    newOrder: "EXECUTED",
+    driverFound: "ASSIGNED!",
+    driverArrived: "ON SITE",
+    paymentSuccess: "COMPLETE",
+    welcomeBack: "RESTORED",
+    savedLocations: "NODES",
+    home: "BASE",
+    work: "HQ",
+    saveLocation: "SAVE",
+    locationName: "NAME",
+    locationSaved: "SAVED",
+    locationDeleted: "PURGED",
+    loginTitle: "ACCESS",
+    loginSubtitle: "INITIALIZE",
+    emailPlaceholder: "USER@GMAIL.COM",
+    passwordLabel: "KEY",
+    passwordPlaceholder: "ENTER KEY",
+    getStarted: "GET STARTED",
+    errorGmail: "INVALID GMAIL",
+    errorPassword: "KEY TOO SHORT",
+    telebirr: "TELEBIRR",
+    cbe: "CBE",
+    card: "CARD",
+    oromia: "OROMIA",
+    awash: "AWASH",
+    baseFee: "BASE",
+    priceBreakdown: "ANALYSIS",
+    distance: "RANGE",
+    perKmFee: "RATE",
+    surgeAdjustment: "DELTA",
+    totalPrice: "FINAL",
+    highDemand: "LOAD",
+    rushHour: "PEAK",
+    weatherSurge: "ENV DELTA",
+    surgeNotification: "SURGE: {reason}",
+    trafficInfo: "TRAFFIC",
+    recentSearches: "QUERIES",
+    clearMap: "CLEAR"
   },
   am: {
     callDelivery: "መላኪያ ጥራ",
@@ -115,17 +119,17 @@ const TRANSLATIONS = {
     liveCommunity: "የቀጥታ ማህበረሰብ",
     online: "በመስመር ላይ",
     mins: "ደቂቃዎች",
-    confirmOrder: "ትዕዛዝ አረጋግጥ",
-    paymentSummary: "የክፍያ ማጠቃለያ",
-    secureWallet: "ደህንነቱ የተጠበቀ ቦርሳ",
+    confirmOrder: "ትዕዛዝ ፈጽም",
+    paymentSummary: "የክፍያ መዝገብ",
+    secureWallet: "ደህንነቱ የተጠበቀ ካዝና",
     fundsEscrow: "ገንዘብ በታማኝነት ተይዟል",
     escrowNote: "ሾፌሩ ክፍያ የሚያገኘው የመላኪያ ኮዱን ሲሰጡት ብቻ ነው።",
-    deliveryCode: "የመላኪያ ኮድ ያስገቡ",
-    pendingBalance: "የሚጠባበቅ ቀሪ ሂሳብ",
+    deliveryCode: "ኮድ አረጋግጥ",
+    pendingBalance: "የሚጠባበቅ",
     payWith: "በዚህ ይክፈሉ",
     settings: "ቅንብሮች",
     language: "ቋንቋ",
-    downloadExport: "አውርድ እና ላክ",
+    downloadExport: "ምንጭ ኮድ ላክ",
     exportGithub: "ወደ GitHub ላክ",
     downloadZip: "ZIP አውርድ",
     exportInstructions: "የመተግበሪያዎን ምንጭ ኮድ ለመላክ የ AI Studio ቅንብሮችን ምናሌ ይጠቀሙ።",
@@ -135,12 +139,12 @@ const TRANSLATIONS = {
     back: "ተመለስ",
     notifications: "ማሳወቂያዎች",
     noNotifications: "አዲስ ማሳወቂያ የለም",
-    markAllRead: "ሁሉንም እንደተነበበ ምልክት አድርግ",
-    newOrder: "አዲስ ትዕዛዝ ተረጋግጧል",
-    driverFound: "ሾፌር ተገኝቷል!",
+    markAllRead: "ሁሉንም አጽዳ",
+    newOrder: "ትዕዛዝ ተፈጽሟል",
+    driverFound: "ሾፌር ተመድቧል!",
     driverArrived: "ሾፌሩ ደርሷል",
     paymentSuccess: "ክፍያ ተሳክቷል",
-    welcomeBack: "ወደ አዲስ ቫይብ እንኳን በደህና መጡ!",
+    welcomeBack: "እንኳን ተመለሱ!",
     savedLocations: "የተቀመጡ ቦታዎች",
     home: "ቤት",
     work: "ስራ",
@@ -148,11 +152,11 @@ const TRANSLATIONS = {
     locationName: "የቦታ ስም",
     locationSaved: "ቦታ ተቀምጧል",
     locationDeleted: "ቦታ ተሰርዟል",
-    loginTitle: "እንኳን ወደ አዲስ ቫይብ በደህና መጡ",
-    loginSubtitle: "ፕሪሚየም የመላኪያ ተሞክሮዎን ለመጀመር የእርስዎን Gmail እና የይለፍ ቃል ያስገቡ",
-    emailPlaceholder: "yourname@gmail.com",
+    loginTitle: "የስርዓት መግቢያ",
+    loginSubtitle: "ስርዓቱን ለመጀመር መለያዎን ያረጋግጡ",
+    emailPlaceholder: "USER@GMAIL.COM",
     passwordLabel: "የይለፍ ቃል",
-    passwordPlaceholder: "የይለፍ ቃልዎን ያስገቡ",
+    passwordPlaceholder: "የይለፍ ቃል ያስገቡ",
     getStarted: "ጀምር",
     errorGmail: "እባክዎ ትክክለኛ የጂሜይል አድራሻ ያስገቡ",
     errorPassword: "የይለፍ ቃል ቢያንስ 6 ቁምፊዎች መሆን አለበት",
@@ -171,7 +175,9 @@ const TRANSLATIONS = {
     rushHour: "የችኮላ ሰዓት ማስተካከያ",
     weatherSurge: "የአየር ሁኔታ ማስተካከያ",
     surgeNotification: "በ{reason} ምክንያት የዋጋ ጭማሪ ተደርጓል",
-    trafficInfo: "የትራፊክ መረጃ"
+    trafficInfo: "የትራፊክ መረጃ",
+    recentSearches: "የቅርብ ጊዜ ፍለጋዎች",
+    clearMap: "አጽዳ"
   },
   om: {
     callDelivery: "Ergaa Waami",
@@ -182,45 +188,45 @@ const TRANSLATIONS = {
     liveCommunity: "Hawaasa Kallattii",
     online: "Marsariitii irra",
     mins: "Daqiiqaa",
-    confirmOrder: "Ajaja Mirkaneessi",
-    paymentSummary: "Gabaasa Kafaltii",
-    secureWallet: "Boorsaa Nageenyaa",
-    fundsEscrow: "Maallaqni amanamummaadhaan qabameera",
-    escrowNote: "Konkolaachisaan kan kafalamu yoo ati koodii ergaa kennite qofa.",
-    deliveryCode: "Koodii Ergaa Galchi",
-    pendingBalance: "Maallaqa Eeggamaa Jiru",
-    payWith: "Kanaan Kafali",
-    settings: "Sajoo",
-    language: "Afaan",
-    downloadExport: "Buufachuu fi Erguu",
-    exportGithub: "Gara GitHub Ergi",
-    downloadZip: "ZIP Buufadhu",
-    exportInstructions: "Koodii madda pirogiraamii keessanii erguuf minyuu qindaa'ina AI Studio fayyadamaa.",
-    theme: "Bifa",
-    lightMode: "Ifa",
-    darkMode: "Dukkana",
-    back: "Deebi'i",
-    notifications: "Beeksisa",
-    noNotifications: "Beeksisa haaraan hin jiru",
-    markAllRead: "Hunda akka dubbisametti mallattoo godhi",
-    newOrder: "Ajaja Haaraa Mirkanaa'e",
-    driverFound: "Konkolaachisaan Argameera!",
-    driverArrived: "Konkolaachisaan ga'eera",
-    paymentSuccess: "Kafaltiin Milkaa'eera",
-    welcomeBack: "Gara AddisVibe tti baga nagaan deebitan!",
-    savedLocations: "Bakkeewwan Olka'aman",
-    home: "Mana",
-    work: "Hojii",
-    saveLocation: "Bakka Olka'i",
-    locationName: "Maqaa Bakkaa",
-    locationSaved: "Bakki Olka'ameera",
-    locationDeleted: "Bakki Haqameera",
-    loginTitle: "Gara AddisVibe tti Baga Nagaan Dhuftan",
-    loginSubtitle: "Muuxannoo ergaa keessan jalqabuuf Gmail fi jecha iccitii keessan galchaa",
-    emailPlaceholder: "yourname@gmail.com",
-    passwordLabel: "Jecha Iccitii",
-    passwordPlaceholder: "Jecha iccitii keessan galchaa",
-    getStarted: "Jalqabi",
+    confirmOrder: "AJAJA RAAWWADHU",
+    paymentSummary: "GABAASA KAFALTII",
+    secureWallet: "KAASNAA NAGEENYAA",
+    fundsEscrow: "MAALLAQNI QABAMEERA",
+    escrowNote: "KONKOLAACHISAAN KAN KAFALAMU YOO ATI KOODII ERGAA KENNITE QOFA.",
+    deliveryCode: "KOODII MIRKANEESSI",
+    pendingBalance: "MAALLAQA EEGGAMAA",
+    payWith: "KANAAN KAFALI",
+    settings: "SAJOO",
+    language: "AFAAN",
+    downloadExport: "KOODII ERGI",
+    exportGithub: "GARA GITHUB ERGI",
+    downloadZip: "ZIP BUUFADHU",
+    exportInstructions: "KOODII ERGUUF MINYUU QINDAA'INA AI STUDIO FAYYADAMAA.",
+    theme: "BIFA",
+    lightMode: "IFA",
+    darkMode: "DUKKANA",
+    back: "DEEBI'I",
+    notifications: "BEEKSISA",
+    noNotifications: "BEEKSISA HAARAAN HIN JIRU",
+    markAllRead: "HUNDA HAQI",
+    newOrder: "AJAJA RAAWWATAME",
+    driverFound: "KONKOLAACHISAAN ARGAMEERA!",
+    driverArrived: "KONKOLAACHISAAN GA'EERA",
+    paymentSuccess: "KAFALTIIN MILKAA'EERA",
+    welcomeBack: "BAGA NAGAAAN DEEBITAN!",
+    savedLocations: "BAKKEEWWAN OLKA'AMAN",
+    home: "MANA",
+    work: "HOJII",
+    saveLocation: "BAKKA OLKA'I",
+    locationName: "MAQAA BAKKAA",
+    locationSaved: "BAKKI OLKA'AMEERA",
+    locationDeleted: "BAKKI HAQAMEERA",
+    loginTitle: "SEENSA SIRNAA",
+    loginSubtitle: "SIRNA JALQABUUF GMAIL FI JECHA ICCITII KEESSAN GALCHAA",
+    emailPlaceholder: "USER@GMAIL.COM",
+    passwordLabel: "JECHA ICCITII",
+    passwordPlaceholder: "JECHA ICCITII GALCHAA",
+    getStarted: "JALQABI",
     errorGmail: "Maaloo teessoo Gmail sirrii galchaa",
     errorPassword: "Jechi iccitii yoo xiqqaate mallattoo 6 ta'uu qaba",
     telebirr: "Telebirr",
@@ -236,7 +242,9 @@ const TRANSLATIONS = {
     totalPrice: "Gatii Waliigalaa",
     highDemand: "Naannoo kanatti barbaadamni guddaadha",
     rushHour: "Sirreeffama sa'aatii muddamaa",
-    trafficInfo: "Oduu Tiraafikaa"
+    trafficInfo: "Oduu Tiraafikaa",
+    recentSearches: "Barbaacha Dhiyoo",
+    clearMap: "HAQI"
   }
 };
 
@@ -295,6 +303,8 @@ export default function App() {
   const [landmark, setLandmark] = useState('');
   const [location, setLocation] = useState('Bole, Addis Ababa');
   const [estimatedTime, setEstimatedTime] = useState(0);
+  const [lastEstimatedTime, setLastEstimatedTime] = useState(0);
+  const [trafficEvent, setTrafficEvent] = useState<string | null>(null);
   const [orderLocation, setOrderLocation] = useState({ x: 20, y: 20 }); // Percentage based
   const [currentDistance, setCurrentDistance] = useState(MOCK_DRIVER.distanceKm);
   const [onlineUsers, setOnlineUsers] = useState<OnlineUser[]>([]);
@@ -306,6 +316,7 @@ export default function App() {
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [notifications, setNotifications] = useState<Notification[]>([
     {
@@ -330,13 +341,36 @@ export default function App() {
   const [hoverRating, setHoverRating] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeInput, setActiveInput] = useState<'location' | 'landmark' | null>(null);
-  const [trafficLevel, setTrafficLevel] = useState<'Low' | 'Moderate' | 'Heavy'>('Moderate');
+  const [trafficLevel, setTrafficLevel] = useState<'Low' | 'Moderate' | 'Heavy'>('Heavy');
   const [showPriceBreakdown, setShowPriceBreakdown] = useState(false);
-  const [showExportModal, setShowExportModal] = useState(false);
   const [calculatedPrice, setCalculatedPrice] = useState(0);
   const [surgeMultiplier, setSurgeMultiplier] = useState(1.0);
   const [surgeReason, setSurgeReason] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<{ condition: string; precipChance: number } | null>(null);
+  const [recentLocations, setRecentLocations] = useState<string[]>([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('recentLocations');
+    if (saved) {
+      try {
+        setRecentLocations(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to parse recent locations", e);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
+  }, [recentLocations]);
+
+  const saveRecentLocation = (loc: string) => {
+    if (!loc || loc.trim() === '') return;
+    setRecentLocations(prev => {
+      const filtered = prev.filter(l => l !== loc);
+      return [loc, ...filtered].slice(0, 5);
+    });
+  };
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -407,6 +441,22 @@ export default function App() {
       Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c; // Distance in km
+  };
+
+  const handleClearMap = () => {
+    setLocation('');
+    setLandmark('');
+    setShowDriver(false);
+    setIsCalling(false);
+    setShowPriceBreakdown(false);
+    setCurrentLandmark(null);
+    setTrafficEvent(null);
+    setEstimatedTime(0);
+    setLastEstimatedTime(0);
+    setCalculatedPrice(0);
+    setSurgeMultiplier(1.0);
+    setSurgeReason(null);
+    addNotification(t.clearMap, 'System state has been reset.', 'info');
   };
 
   const calculatePrice = (pickup: string, delivery: string) => {
@@ -595,18 +645,23 @@ export default function App() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError('');
+    setIsLoggingIn(true);
     
     const emailTrimmed = userEmail.trim().toLowerCase();
     const passwordTrimmed = password.trim();
 
-    if (emailTrimmed.endsWith('@gmail.com') && passwordTrimmed.length >= 6) {
-      setView('map');
-      addNotification(t.welcomeBack, 'You are now logged in to your premium account.', 'success');
-    } else if (!emailTrimmed.endsWith('@gmail.com')) {
-      setLoginError(t.errorGmail);
-    } else {
-      setLoginError(t.errorPassword);
-    }
+    // Simulate network delay
+    setTimeout(() => {
+      setIsLoggingIn(false);
+      if (emailTrimmed.endsWith('@gmail.com') && passwordTrimmed.length >= 6) {
+        setView('map');
+        addNotification(t.welcomeBack, 'You are now logged in to your premium account.', 'success');
+      } else if (!emailTrimmed.endsWith('@gmail.com')) {
+        setLoginError(t.errorGmail);
+      } else {
+        setLoginError(t.errorPassword);
+      }
+    }, 1500);
   };
 
   // WebSocket for presence
@@ -647,15 +702,7 @@ export default function App() {
 
   // Simulate driver moving towards user (50, 50)
   useEffect(() => {
-    // Global traffic fluctuation
-    const trafficInterval = setInterval(() => {
-      if (Math.random() > 0.7) {
-        const levels: ('Low' | 'Moderate' | 'Heavy')[] = ['Low', 'Moderate', 'Heavy'];
-        setTrafficLevel(levels[Math.floor(Math.random() * levels.length)]);
-      }
-    }, 10000); // Check every 10 seconds
-
-    return () => clearInterval(trafficInterval);
+    // Traffic fluctuation disabled as per request to keep it 'Heavy'
   }, []);
 
   useEffect(() => {
@@ -700,6 +747,23 @@ export default function App() {
           if (trafficLevel === 'Heavy') speedMultiplier = 0.2;
           if (trafficLevel === 'Low') speedMultiplier = 0.8;
 
+          // Random traffic events
+          if (Math.random() > 0.95 && !trafficEvent) {
+            const events = [
+              "Congestion at Intersection",
+              "Road Construction Ahead",
+              "Traffic Light Delay",
+              "Clear Path Detected",
+              "Slowing for Pedestrians"
+            ];
+            const event = events[Math.floor(Math.random() * events.length)];
+            setTrafficEvent(event);
+            setTimeout(() => setTrafficEvent(null), 4000);
+          }
+
+          if (trafficEvent?.includes("Clear")) speedMultiplier *= 1.5;
+          if (trafficEvent?.includes("Congestion") || trafficEvent?.includes("Construction")) speedMultiplier *= 0.5;
+
           const moveX = (dx / dist) * speedMultiplier;
           const moveY = (dy / dist) * speedMultiplier;
           
@@ -716,22 +780,31 @@ export default function App() {
           if (trafficLevel === 'Moderate') trafficFactor = 1.2;
           if (trafficLevel === 'Heavy') trafficFactor = 2.2;
 
+          let eventDelay = 0;
+          if (trafficEvent?.includes("Congestion")) eventDelay = 3;
+          if (trafficEvent?.includes("Construction")) eventDelay = 5;
+          if (trafficEvent?.includes("Clear")) eventDelay = -2;
+
           let landmarkDelay = 0;
           if (nearbyLandmark) {
-            landmarkDelay = 1.5; // Delays near landmarks due to congestion
+            landmarkDelay = 2; // Delays near landmarks due to congestion
           }
 
           const baseTime = newDist * 2.5; // Base minutes per km
-          const finalEta = Math.round((baseTime * trafficFactor) + landmarkDelay);
+          const finalEta = Math.round((baseTime * trafficFactor) + landmarkDelay + eventDelay);
 
-          setEstimatedTime(Math.max(1, finalEta));
+          const newEta = Math.max(1, finalEta);
+          if (newEta !== estimatedTime) {
+            setLastEstimatedTime(estimatedTime);
+            setEstimatedTime(newEta);
+          }
 
           return { x: newX, y: newY };
         });
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [showDriver, landmark, t.driverArrived, trafficLevel]);
+  }, [showDriver, landmark, t.driverArrived, trafficLevel, trafficEvent, estimatedTime]);
 
   const PriceBreakdown = () => {
     const [displayPrice, setDisplayPrice] = useState(0);
@@ -761,98 +834,101 @@ export default function App() {
         initial={{ y: '100%' }}
         animate={{ y: 0 }}
         exit={{ y: '100%' }}
-        className="absolute bottom-0 left-0 right-0 z-[120] bg-addis-card border-t border-addis-border rounded-t-[40px] p-8 pb-12 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+        className="absolute bottom-0 left-0 right-0 z-[120] bg-addis-card brutal-border border-b-0 p-8 pb-12 shadow-high-contrast"
       >
-        <div className="w-12 h-1.5 bg-addis-surface rounded-full mx-auto mb-8" />
+        <div className="w-16 h-2 bg-addis-surface brutal-border mx-auto mb-8" />
         
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-black tracking-tight text-addis-text">{t.priceBreakdown}</h2>
-          <button onClick={() => setShowPriceBreakdown(false)} className="w-10 h-10 rounded-full bg-addis-surface flex items-center justify-center text-addis-muted">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-display tracking-tighter text-addis-text uppercase">{t.priceBreakdown}</h2>
+          <button onClick={() => setShowPriceBreakdown(false)} className="w-10 h-10 brutal-border bg-addis-surface flex items-center justify-center text-addis-text hover:bg-rose-500 hover:text-white transition-all">
             <X size={20} />
           </button>
         </div>
 
-        <div className="space-y-6 mb-10">
+        <div className="space-y-4 mb-8">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-addis-surface flex items-center justify-center text-addis-muted">
-                <Navigation size={16} />
+              <div className="w-10 h-10 brutal-border bg-addis-surface flex items-center justify-center text-addis-text">
+                <Navigation size={20} />
               </div>
-              <span className="text-sm font-medium text-addis-muted">{t.distance}</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-addis-muted">{t.distance}</span>
             </div>
-            <span className="text-base font-black text-addis-text">{tripDistance} km</span>
+            <span className="text-xl font-display text-addis-text tracking-widest">{tripDistance} KM</span>
           </div>
 
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-addis-surface flex items-center justify-center text-addis-muted">
-                <Wallet size={16} />
+              <div className="w-10 h-10 brutal-border bg-addis-surface flex items-center justify-center text-addis-text">
+                <Wallet size={20} />
               </div>
-              <span className="text-sm font-medium text-addis-muted">{t.baseFee}</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-addis-muted">{t.baseFee}</span>
             </div>
-            <span className="text-base font-black text-addis-text">ETB 150.00</span>
+            <span className="text-xl font-display text-addis-text tracking-widest">ETB 150.00</span>
           </div>
 
           {tripDistance > 3 && (
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-addis-surface flex items-center justify-center text-addis-muted">
-                  <ArrowRight size={16} />
+                <div className="w-10 h-10 brutal-border bg-addis-surface flex items-center justify-center text-addis-text">
+                  <ArrowRight size={20} />
                 </div>
-                <span className="text-sm font-medium text-addis-muted">{t.perKmFee}</span>
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-addis-muted">{t.perKmFee}</span>
               </div>
-              <span className="text-base font-black text-addis-text">ETB {((tripDistance - 3) * 50).toFixed(2)}</span>
+              <span className="text-xl font-display text-addis-text tracking-widest">ETB {((tripDistance - 3) * 50).toFixed(2)}</span>
             </div>
           )}
 
           {surgeMultiplier > 1 && (
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-500">
-                  <Clock size={16} />
+                <div className="w-10 h-10 brutal-border bg-rose-500/20 flex items-center justify-center text-rose-500">
+                  <Clock size={20} />
                 </div>
-                <span className="text-sm font-medium text-rose-500">{surgeReason || t.highDemand}</span>
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-rose-500">{surgeReason || t.highDemand}</span>
               </div>
-              <span className="text-base font-black text-rose-500">x{surgeMultiplier}</span>
+              <span className="text-xl font-display text-rose-500 tracking-widest">x{surgeMultiplier}</span>
             </div>
           )}
         </div>
 
-        <div className="bg-addis-surface border border-addis-border rounded-[32px] p-6 mb-8">
+        <div className="bg-addis-surface brutal-border p-6 mb-6">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-addis-muted">{t.totalPrice}</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-addis-muted">{t.totalPrice}</span>
             <div className="flex items-center gap-2">
-              <div className="bg-emerald-500/10 px-2 py-0.5 rounded-md flex items-center gap-1">
-                <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-emerald-500 text-[8px] font-black uppercase tracking-widest">{t.trafficInfo}</span>
+              <div className="bg-emerald-500/20 px-4 py-2 brutal-border flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-emerald-500 text-[10px] font-black uppercase tracking-widest">{t.trafficInfo}</span>
               </div>
             </div>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-addis-muted text-lg font-bold">ETB</span>
-            <span className="text-5xl font-black text-electric-yellow tracking-tighter">{displayPrice}</span>
+          <div className="flex items-baseline gap-3">
+            <span className="text-addis-muted text-xl font-display">ETB</span>
+            <span className="text-5xl font-display text-electric-yellow tracking-tighter">{displayPrice}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-4 mb-8">
-          <div className="flex-1 bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-center gap-3">
-            <img src="https://picsum.photos/seed/telebirr/40/40" className="w-6 h-6 rounded-md opacity-80" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">Telebirr</span>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="flex-1 bg-addis-surface brutal-border p-4 flex items-center justify-center gap-3 hover:bg-addis-card transition-all cursor-pointer group">
+            <img src="https://picsum.photos/seed/telebirr/40/40" className="w-8 h-8 brutal-border" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-addis-text group-hover:text-electric-yellow">Telebirr</span>
           </div>
-          <div className="flex-1 bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-center gap-3">
-            <img src="https://picsum.photos/seed/cbe/40/40" className="w-6 h-6 rounded-md opacity-80" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">CBE Birr</span>
+          <div className="flex-1 bg-addis-surface brutal-border p-4 flex items-center justify-center gap-3 hover:bg-addis-card transition-all cursor-pointer group">
+            <img src="https://picsum.photos/seed/cbe/40/40" className="w-8 h-8 brutal-border" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-addis-text group-hover:text-electric-yellow">CBE Birr</span>
           </div>
         </div>
 
         <button 
           onClick={() => {
             setShowPriceBreakdown(false);
+            saveRecentLocation(location);
+            if (landmark) saveRecentLocation(landmark);
             setIsCalling(true);
           }}
-          className="w-full bg-electric-yellow text-addis-dark font-black h-16 rounded-[24px] text-base uppercase tracking-widest shadow-[0_20px_40px_rgba(240,255,0,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all"
+          className="w-full bg-electric-yellow text-addis-dark font-display h-20 brutal-border text-2xl uppercase tracking-[0.2em] hover:translate-x-1 hover:-translate-y-1 transition-all shadow-high-contrast flex items-center justify-center gap-3"
         >
           {t.confirmOrder}
+          <ArrowRight size={28} />
         </button>
       </motion.div>
     );
@@ -1068,38 +1144,38 @@ export default function App() {
       </div>
 
       {/* Header */}
-      <header className="relative z-20 p-6 flex justify-between items-center">
+      <header className="relative z-20 p-6 flex justify-between items-center bg-addis-dark brutal-border border-x-0 border-t-0">
         <div className="flex items-center gap-4">
-          <div>
-            <h1 className="text-2xl font-black tracking-tighter text-addis-text">
+          <div className="cursor-pointer" onClick={() => setView('map')}>
+            <h1 className="text-2xl font-display tracking-tighter text-addis-text flex items-center gap-2">
               ADDIS<span className="text-electric-yellow">VIBE</span>
             </h1>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-addis-muted font-medium">Premium Delivery</p>
+            <p className="text-[10px] uppercase tracking-[0.5em] text-addis-muted font-black">Premium Delivery</p>
           </div>
           
           {/* Traffic Info Indicator */}
-          <div className="flex items-center gap-1.5 sm:gap-2 bg-addis-surface border border-addis-border rounded-full px-2 sm:px-3 py-1.5 ml-1 sm:ml-2">
-            <div className={`w-2 h-2 rounded-full animate-pulse ${
-              trafficLevel === 'Low' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 
-              trafficLevel === 'Moderate' ? 'bg-amber-500 shadow-[0_0_8px_#f59e0b]' : 
-              'bg-rose-500 shadow-[0_0_8px_#ef4444]'
+          <div className="flex items-center gap-2 bg-addis-surface brutal-border px-3 py-2 ml-2">
+            <div className={`w-3 h-3 rounded-full animate-pulse ${
+              trafficLevel === 'Low' ? 'bg-emerald-500 shadow-[0_0_12px_#10b981]' : 
+              trafficLevel === 'Moderate' ? 'bg-amber-500 shadow-[0_0_12px_#f59e0b]' : 
+              'bg-rose-500 shadow-[0_0_12px_#ef4444]'
             }`} />
-            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-addis-text">
+            <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">
               <span className="hidden xs:inline">Traffic: </span>{trafficLevel}
             </span>
           </div>
 
           {/* Online Users Indicator */}
-          <div className="hidden sm:flex items-center gap-2 bg-addis-surface border border-addis-border rounded-full px-3 py-1.5 ml-2">
+          <div className="hidden sm:flex items-center gap-3 bg-addis-surface brutal-border px-3 py-2 ml-2">
             <div className="relative">
-              <Users size={14} className="text-addis-muted" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full border border-addis-dark" />
+              <Users size={18} className="text-addis-text" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-addis-dark" />
             </div>
-            <div className="flex -space-x-2">
+            <div className="flex -space-x-3">
               {onlineUsers.slice(0, 3).map((user) => (
                 <div 
                   key={user.id}
-                  className="w-6 h-6 rounded-full border-2 border-addis-dark flex items-center justify-center text-[10px] font-black uppercase"
+                  className="w-8 h-8 rounded-full border-2 border-addis-dark flex items-center justify-center text-[12px] font-black uppercase shadow-sm"
                   style={{ backgroundColor: user.color, color: '#000' }}
                   title={user.name}
                 >
@@ -1107,13 +1183,13 @@ export default function App() {
                 </div>
               ))}
               {onlineUsers.length > 3 && (
-                <div className="w-6 h-6 rounded-full bg-addis-surface border-2 border-addis-dark flex items-center justify-center text-[8px] font-bold">
+                <div className="w-8 h-8 rounded-full bg-addis-surface border-2 border-addis-dark flex items-center justify-center text-[10px] font-black">
                   +{onlineUsers.length - 3}
                 </div>
               )}
             </div>
-            <span className="text-[10px] font-bold text-addis-muted uppercase tracking-widest ml-1">
-              {onlineUsers.length} Online
+            <span className="text-[10px] font-black text-addis-text uppercase tracking-widest ml-1">
+              {onlineUsers.length} ONLINE
             </span>
           </div>
         </div>
@@ -1288,25 +1364,25 @@ export default function App() {
               >
                 <Bike size={48} className="text-addis-dark" />
               </motion.div>
-              <h1 className="text-3xl font-black tracking-tighter text-addis-text mb-2">
+              <h1 className="text-3xl font-display tracking-tighter text-addis-text mb-1 flex items-center justify-center gap-2">
                 ADDIS<span className="text-electric-yellow">VIBE</span>
               </h1>
-              <p className="text-addis-muted text-xs uppercase tracking-widest mb-8">{t.loginSubtitle}</p>
+              <p className="text-addis-muted text-[10px] uppercase tracking-[0.3em] font-bold mb-6">{t.loginSubtitle}</p>
             </div>
 
-            <form onSubmit={handleLogin} className="w-full max-w-sm space-y-6">
+            <form onSubmit={handleLogin} className="w-full max-w-xs space-y-6">
               <div className="space-y-4">
                 {loginError && (
                   <motion.div 
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-500/10 border border-red-500/20 rounded-xl p-3 text-red-500 text-[10px] font-bold text-center uppercase tracking-widest"
+                    className="bg-rose-500/20 brutal-border p-4 text-rose-500 text-[10px] font-black text-center uppercase tracking-widest"
                   >
                     {loginError}
                   </motion.div>
                 )}
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest font-black text-addis-muted ml-2">Gmail</label>
+                  <label className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-muted ml-2">Gmail</label>
                   <div className="relative">
                     <input 
                       type="email" 
@@ -1314,27 +1390,27 @@ export default function App() {
                       value={userEmail}
                       onChange={(e) => setUserEmail(e.target.value)}
                       placeholder={t.emailPlaceholder}
-                      className="w-full bg-addis-surface border border-addis-border rounded-2xl p-5 text-addis-text placeholder:text-addis-muted focus:ring-electric-yellow focus:border-electric-yellow transition-all"
+                      className="w-full bg-addis-surface brutal-border p-5 text-addis-text placeholder:text-addis-muted/30 focus:shadow-high-contrast transition-all font-display text-lg tracking-widest uppercase"
                     />
                     <div className="absolute right-5 top-1/2 -translate-y-1/2 text-addis-muted">
-                      <Users size={20} />
+                      <Users size={24} />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest font-black text-addis-muted ml-2">{t.passwordLabel}</label>
+                  <label className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-muted ml-2">{t.passwordLabel}</label>
                   <div className="relative">
                     <input 
                       type="password" 
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder={t.passwordPlaceholder}
-                      className="w-full bg-addis-surface border border-addis-border rounded-2xl p-5 text-addis-text placeholder:text-addis-muted focus:ring-electric-yellow focus:border-electric-yellow transition-all"
+                      placeholder="••••••••"
+                      className="w-full bg-addis-surface brutal-border p-5 text-addis-text placeholder:text-addis-muted/30 focus:shadow-high-contrast transition-all font-display text-lg tracking-widest"
                     />
                     <div className="absolute right-5 top-1/2 -translate-y-1/2 text-addis-muted">
-                      <Lock size={20} />
+                      <Lock size={24} />
                     </div>
                   </div>
                 </div>
@@ -1342,21 +1418,31 @@ export default function App() {
 
               <button 
                 type="submit"
-                className="w-full h-12 rounded-xl bg-electric-yellow text-addis-dark font-black uppercase tracking-widest text-[10px] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl"
+                disabled={isLoggingIn}
+                className="w-full bg-electric-yellow text-addis-dark py-4 brutal-border shadow-high-contrast text-lg font-display tracking-[0.2em] uppercase hover:translate-x-1 hover:-translate-y-1 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
               >
-                {t.getStarted}
+                {isLoggingIn ? (
+                  <div className="w-6 h-6 border-4 border-addis-dark/20 border-t-addis-dark rounded-full animate-spin" />
+                ) : (
+                  <>
+                    {t.getStarted}
+                    <ArrowRight size={24} />
+                  </>
+                )}
               </button>
 
-              <button 
-                type="button"
-                onClick={() => {
-                  setUserEmail('demo@gmail.com');
-                  setPassword('123456');
-                }}
-                className="w-full py-3 text-[10px] font-black uppercase tracking-widest text-addis-muted opacity-50 hover:opacity-100 transition-colors"
-              >
-                Use Demo Account
-              </button>
+              {userEmail.toLowerCase() === 'dinacuwe@gmail.com' && (
+                <button 
+                  type="button"
+                  onClick={() => {
+                    setUserEmail('demo@gmail.com');
+                    setPassword('123456');
+                  }}
+                  className="w-full py-4 text-[10px] font-black uppercase tracking-[0.3em] text-electric-yellow border-2 border-electric-yellow/20 hover:bg-electric-yellow/10 transition-all brutal-border"
+                >
+                  Use Demo Account
+                </button>
+              )}
             </form>
 
             <div className="mt-12 flex gap-4">
@@ -1391,14 +1477,24 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-3 mb-8"
+                className="space-y-3 mb-8 relative"
               >
-                <div className="bg-addis-card border border-addis-border rounded-2xl p-4 flex items-center gap-4 shadow-2xl relative">
-                  <div className="w-10 h-10 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
+                {location && (
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    onClick={handleClearMap}
+                    className="absolute -top-3 -right-2 z-30 bg-rose-500 text-white text-[8px] font-black uppercase tracking-widest px-2 py-1 brutal-border shadow-sm hover:bg-rose-600 transition-colors"
+                  >
+                    {t.clearMap}
+                  </motion.button>
+                )}
+                <div className="bg-addis-card brutal-border p-4 flex items-center gap-4 relative focus-within:shadow-high-contrast transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow border border-electric-yellow/20">
                     <Navigation size={20} />
                   </div>
                   <div className="flex-1">
-                    <label className="text-[10px] uppercase tracking-wider text-addis-muted block mb-0.5">{t.pickupLocation}</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-muted block mb-0.5">{t.pickupLocation}</label>
                     <input 
                       type="text" 
                       value={location}
@@ -1407,23 +1503,23 @@ export default function App() {
                         setShowSuggestions(true);
                       }}
                       onChange={(e) => setLocation(e.target.value)}
-                      className="bg-transparent border-none p-0 text-addis-text font-medium focus:ring-0 w-full placeholder:text-addis-muted"
+                      className="bg-transparent border-none p-0 text-addis-text font-display text-xl focus:ring-0 w-full placeholder:text-addis-muted uppercase tracking-widest"
                       placeholder="Where are you?"
                     />
                   </div>
                   <button className="text-electric-yellow p-2 hover:bg-addis-surface rounded-lg transition-colors">
-                    <MapPin size={20} />
+                    <MapPin size={22} />
                   </button>
                 </div>
 
-                <div className="bg-addis-card border border-addis-border rounded-2xl p-4 flex items-center gap-4 shadow-2xl relative">
-                  <div className="w-10 h-10 rounded-xl bg-addis-surface flex items-center justify-center text-addis-muted">
+                <div className="bg-addis-card brutal-border p-4 flex items-center gap-4 relative focus-within:shadow-high-contrast transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-addis-surface flex items-center justify-center text-addis-muted border border-addis-border">
                     <Search size={20} />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-0.5">
-                      <label className="text-[10px] uppercase tracking-wider text-addis-muted block">{t.landmark}</label>
-                      <span className="text-[8px] text-electric-yellow/60 font-black uppercase tracking-tighter">Improves ETA Accuracy</span>
+                      <label className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-muted block">{t.landmark}</label>
+                      <span className="text-[8px] text-electric-yellow font-black uppercase tracking-widest">Accuracy Boost</span>
                     </div>
                     <input 
                       type="text" 
@@ -1433,7 +1529,7 @@ export default function App() {
                         setShowSuggestions(true);
                       }}
                       onChange={(e) => setLandmark(e.target.value)}
-                      className="bg-transparent border-none p-0 text-addis-text font-medium focus:ring-0 w-full placeholder:text-addis-muted"
+                      className="bg-transparent border-none p-0 text-addis-text font-display text-xl focus:ring-0 w-full placeholder:text-addis-muted uppercase tracking-widest"
                       placeholder="e.g. Behind Edna Mall"
                     />
                   </div>
@@ -1463,6 +1559,39 @@ export default function App() {
                         </button>
                       </div>
                       <div className="p-1">
+                        {/* Recent Searches Section */}
+                        {recentLocations.length > 0 && (activeInput === 'location' ? location : landmark).length === 0 && (
+                          <>
+                            <div className="px-3 py-2 flex items-center gap-2 text-addis-muted">
+                              <Clock size={12} />
+                              <span className="text-[9px] font-bold uppercase tracking-widest">{t.recentSearches}</span>
+                            </div>
+                            {recentLocations.map((recent, idx) => (
+                              <button
+                                key={`recent-${idx}`}
+                                onClick={() => {
+                                  if (activeInput === 'location') {
+                                    setLocation(recent);
+                                    calculatePrice(recent, landmark || 'Bole');
+                                  } else {
+                                    setLandmark(recent);
+                                    calculatePrice(location, recent);
+                                  }
+                                  setShowSuggestions(false);
+                                  setShowPriceBreakdown(true);
+                                }}
+                                className="w-full text-left p-3 hover:bg-addis-surface rounded-xl flex items-center gap-3 transition-colors group"
+                              >
+                                <div className="w-8 h-8 rounded-lg bg-addis-surface flex items-center justify-center text-addis-muted group-hover:text-electric-yellow transition-colors">
+                                  <Clock size={16} />
+                                </div>
+                                <span className="text-sm font-medium text-addis-text">{recent}</span>
+                              </button>
+                            ))}
+                            <div className="h-px bg-addis-border mx-2 my-1" />
+                          </>
+                        )}
+
                         {ADDIS_SUGGESTIONS.filter(s => {
                           const val = activeInput === 'location' ? location : landmark;
                           return s.toLowerCase().includes(val.toLowerCase());
@@ -1494,7 +1623,7 @@ export default function App() {
                 </AnimatePresence>
 
                 {/* Saved Locations Quick Select */}
-                <div className="flex gap-2 overflow-x-auto no-scrollbar py-1">
+                <div className="flex gap-3 overflow-x-auto no-scrollbar py-2">
                   {savedLocations.map((loc) => (
                     <motion.button
                       key={loc.id}
@@ -1504,12 +1633,12 @@ export default function App() {
                         e.preventDefault();
                         deleteLocation(loc.id);
                       }}
-                      className="flex items-center gap-2 bg-addis-card border border-addis-border rounded-full px-4 py-2 flex-shrink-0 hover:border-electric-yellow/30 transition-all group"
+                      className="flex items-center gap-2 bg-addis-card brutal-border px-4 py-2.5 flex-shrink-0 hover:bg-electric-yellow hover:text-addis-dark transition-all group"
                     >
-                      <div className="text-electric-yellow opacity-60 group-hover:opacity-100">
-                        {loc.icon === 'home' ? <Home size={14} /> : loc.icon === 'briefcase' ? <Briefcase size={14} /> : <MapPin size={14} />}
+                      <div className="text-electric-yellow group-hover:text-addis-dark">
+                        {loc.icon === 'home' ? <Home size={16} /> : loc.icon === 'briefcase' ? <Briefcase size={16} /> : <MapPin size={16} />}
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">{loc.name}</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest">{loc.name}</span>
                     </motion.button>
                   ))}
                 </div>
@@ -1524,10 +1653,10 @@ export default function App() {
               >
                 <div className="flex items-center justify-between mb-3 px-1">
                   <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <h3 className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-text opacity-60">{t.liveCommunity}</h3>
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <h3 className="text-[10px] uppercase tracking-[0.3em] font-black text-addis-text">{t.liveCommunity}</h3>
                   </div>
-                  <span className="text-[10px] font-bold text-electric-yellow bg-electric-yellow/10 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-black text-addis-dark bg-electric-yellow px-3 py-1 brutal-border">
                     {onlineUsers.length} {t.online}
                   </span>
                 </div>
@@ -1576,11 +1705,11 @@ export default function App() {
                       exit={{ scale: 1.1, opacity: 0 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsCalling(true)}
-                      className="group relative w-32 h-32 rounded-full bg-electric-yellow flex flex-col items-center justify-center shadow-[0_0_40px_rgba(240,255,0,0.3)] overflow-hidden"
+                      className="group relative w-36 h-36 rounded-full brutal-border bg-electric-yellow flex flex-col items-center justify-center shadow-high-contrast overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent" />
-                      <Bike size={40} className="text-addis-dark mb-2 group-hover:scale-110 transition-transform duration-500" />
-                      <span className="text-addis-dark font-black text-[10px] tracking-widest uppercase text-center px-4 leading-tight">{t.callDelivery}</span>
+                      <Bike size={40} className="text-addis-dark mb-1 group-hover:scale-110 transition-transform duration-500" />
+                      <span className="text-addis-dark font-display text-sm tracking-widest uppercase text-center px-4 leading-tight">{t.callDelivery}</span>
                     </motion.button>
                   ) : (
                     <motion.div
@@ -1590,10 +1719,10 @@ export default function App() {
                       exit={{ opacity: 0 }}
                       className="flex flex-col items-center"
                     >
-                      <div className="text-electric-yellow font-black text-3xl tracking-tighter uppercase mb-2 animate-pulse">
+                      <div className="text-electric-yellow font-display text-3xl tracking-tighter uppercase mb-2 animate-pulse">
                         {t.pinging}
                       </div>
-                      <p className="text-addis-muted text-xs uppercase tracking-widest">{t.searchingNear} {landmark || 'Current Location'}</p>
+                      <p className="text-addis-muted text-xs uppercase tracking-[0.4em] font-black">{t.searchingNear} {landmark || 'Current Location'}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -1614,15 +1743,15 @@ export default function App() {
               <div className="flex items-center gap-4">
                 <button 
                   onClick={() => setView('map')}
-                  className="w-10 h-10 rounded-xl bg-addis-surface flex items-center justify-center text-addis-muted"
+                  className="w-12 h-12 brutal-border bg-addis-surface flex items-center justify-center text-addis-muted hover:text-addis-text transition-all"
                 >
-                  <X size={20} />
+                  <X size={24} />
                 </button>
-                <h2 className="text-xl font-black tracking-tight text-addis-text">{t.paymentSummary}</h2>
+                <h2 className="text-2xl font-display tracking-widest uppercase text-addis-text">{t.paymentSummary}</h2>
               </div>
-              <div className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Secured</span>
+              <div className="bg-emerald-500/20 brutal-border px-4 py-2 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-emerald-500 text-[10px] font-black uppercase tracking-[0.2em]">Secured</span>
               </div>
             </div>
 
@@ -1636,23 +1765,20 @@ export default function App() {
                 stiffness: 200,
                 delay: 0.3 
               }}
-              className="bg-emerald-500/10 border border-emerald-500/20 rounded-[32px] p-6 mb-8 flex flex-col items-center text-center relative overflow-hidden group"
+              className="bg-emerald-500/10 brutal-border p-8 mb-10 flex flex-col items-center text-center relative overflow-hidden group shadow-high-contrast"
             >
-              {/* Decorative background glow */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full" />
-              
-              <div className="w-16 h-16 rounded-3xl bg-emerald-500 flex items-center justify-center text-addis-dark shadow-[0_0_30px_rgba(16,185,129,0.4)] mb-4 relative z-10 transition-transform group-hover:scale-110">
-                <ShieldCheck size={32} />
+              <div className="w-20 h-20 brutal-border bg-emerald-500 flex items-center justify-center text-addis-dark shadow-[0_0_40px_rgba(16,185,129,0.5)] mb-6 relative z-10 transition-transform group-hover:scale-110">
+                <ShieldCheck size={40} />
               </div>
               
               <div className="relative z-10">
-                <h3 className="text-emerald-500 font-black text-base uppercase tracking-tight mb-2">{t.fundsEscrow}</h3>
-                <p className="text-addis-text opacity-60 text-xs leading-relaxed max-w-[240px] mx-auto">{t.escrowNote}</p>
+                <h3 className="text-emerald-500 font-display text-2xl uppercase tracking-tighter mb-3">{t.fundsEscrow}</h3>
+                <p className="text-addis-text opacity-70 text-sm leading-relaxed max-w-[280px] mx-auto font-medium">{t.escrowNote}</p>
               </div>
               
-              <div className="mt-4 flex items-center gap-2 bg-emerald-500/20 px-4 py-1.5 rounded-full border border-emerald-500/30">
-                <CheckCircle2 size={12} className="text-emerald-500" />
-                <span className="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Verified by AddisVibe</span>
+              <div className="mt-6 flex items-center gap-3 bg-emerald-500/20 px-6 py-2 brutal-border">
+                <CheckCircle2 size={16} className="text-emerald-500" />
+                <span className="text-emerald-500 text-[10px] font-black uppercase tracking-[0.2em]">Verified by AddisVibe</span>
               </div>
             </motion.div>
 
@@ -1671,7 +1797,7 @@ export default function App() {
                 { id: 'cbe', name: t.cbe, img: 'https://picsum.photos/seed/cbe/100/100' },
                 { id: 'oromia', name: t.oromia, img: 'https://picsum.photos/seed/oromia/100/100' },
                 { id: 'awash', name: t.awash, img: 'https://picsum.photos/seed/awash/100/100' },
-                { id: 'card', name: t.card, icon: <CreditCard size={24} /> }
+                { id: 'card', name: t.card, icon: <CreditCard size={28} /> }
               ].map((method) => (
                 <motion.button 
                   key={method.id}
@@ -1680,44 +1806,48 @@ export default function App() {
                     scale: selectedPayment === method.id ? 1.02 : 1,
                   }}
                   onClick={() => setSelectedPayment(method.id as any)}
-                  className={`w-full p-4 rounded-[28px] border transition-all flex items-center justify-between group ${
+                  className={`w-full p-6 brutal-border transition-all flex items-center justify-between group ${
                     selectedPayment === method.id 
-                    ? 'bg-electric-yellow border-electric-yellow shadow-[0_15px_30px_rgba(240,255,0,0.15)]' 
-                    : 'bg-addis-surface border-addis-border text-addis-text hover:border-addis-text/20'
+                    ? 'bg-electric-yellow text-addis-dark shadow-high-contrast -translate-y-1' 
+                    : 'bg-addis-surface text-addis-text hover:bg-addis-card'
                   }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden ${selectedPayment === method.id ? 'bg-black/10' : 'bg-addis-surface'}`}>
+                  <div className="flex items-center gap-5">
+                    <div className={`w-16 h-16 brutal-border flex items-center justify-center overflow-hidden ${
+                      selectedPayment === method.id ? 'bg-addis-dark/10' : 'bg-addis-surface'
+                    }`}>
                       {method.img ? (
-                        <img src={method.img} alt={method.name} className="w-full h-full object-cover opacity-80" />
+                        <img src={method.img} alt={method.name} className="w-full h-full object-cover" />
                       ) : (
-                        <div className={selectedPayment === method.id ? 'text-black' : 'text-addis-muted'}>
+                        <div className={selectedPayment === method.id ? 'text-addis-dark' : 'text-addis-muted'}>
                           {method.icon}
                         </div>
                       )}
                     </div>
                     <div className="text-left">
-                      <span className={`text-[9px] uppercase font-bold tracking-widest block mb-0.5 ${selectedPayment === method.id ? 'text-black/40' : 'text-addis-muted'}`}>{t.payWith}</span>
-                      <span className={`text-base font-black tracking-tight ${selectedPayment === method.id ? 'text-black' : 'text-addis-text'}`}>{method.name}</span>
+                      <span className={`text-[10px] uppercase font-black tracking-[0.3em] block mb-1 ${selectedPayment === method.id ? 'text-addis-dark/70' : 'text-addis-muted'}`}>{t.payWith}</span>
+                      <span className={`text-2xl font-display tracking-tighter uppercase ${selectedPayment === method.id ? 'text-addis-dark' : 'text-addis-text'}`}>{method.name}</span>
                     </div>
                   </div>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${selectedPayment === method.id ? 'border-black/20' : 'border-addis-border'}`}>
-                    {selectedPayment === method.id && <div className="w-2.5 h-2.5 rounded-full bg-black" />}
+                  <div className={`w-8 h-8 brutal-border flex items-center justify-center ${
+                    selectedPayment === method.id ? 'bg-addis-dark border-addis-dark text-electric-yellow' : 'bg-addis-surface'
+                  }`}>
+                    {selectedPayment === method.id && <Check size={18} strokeWidth={4} />}
                   </div>
                 </motion.button>
               ))}
             </div>
 
             {/* Delivery Code Input */}
-            <div className="bg-addis-card border border-addis-border rounded-[32px] p-6 mb-8 relative overflow-hidden group">
+            <div className="bg-addis-card brutal-border p-8 mb-8 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <ShieldCheck size={48} className="text-electric-yellow" />
+                <ShieldCheck size={64} className="text-electric-yellow" />
               </div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-4">
-                  <Lock size={14} className="text-electric-yellow" />
-                  <label className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-text">{t.deliveryCode}</label>
+                  <Lock size={16} className="text-electric-yellow" />
+                  <label className="text-[10px] uppercase tracking-[0.3em] font-black text-addis-text">{t.deliveryCode}</label>
                 </div>
                 
                 <div className="flex gap-3">
@@ -1726,7 +1856,7 @@ export default function App() {
                     maxLength={6}
                     value={deliveryCode}
                     onChange={(e) => setDeliveryCode(e.target.value)}
-                    className="flex-1 bg-addis-surface border border-addis-border rounded-2xl p-4 text-center text-2xl font-black tracking-[0.5em] text-electric-yellow focus:ring-electric-yellow focus:border-electric-yellow uppercase placeholder:opacity-20"
+                    className="flex-1 bg-addis-surface brutal-border p-5 text-center text-4xl font-display tracking-[0.5em] text-electric-yellow focus:ring-electric-yellow focus:border-electric-yellow uppercase placeholder:opacity-10"
                     placeholder="000000"
                   />
                 </div>
@@ -1741,18 +1871,21 @@ export default function App() {
             </div>
 
             {/* Driver View Concept: Pending Balance */}
-            <div className="bg-addis-surface border border-addis-border rounded-3xl p-6 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-addis-surface flex items-center justify-center text-addis-muted">
-                  <Wallet size={20} />
+            <div className="bg-addis-surface brutal-border p-6 flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 brutal-border bg-addis-surface flex items-center justify-center text-addis-text">
+                  <Wallet size={24} />
                 </div>
                 <div>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-addis-muted block">{t.pendingBalance}</span>
-                  <span className="text-addis-text font-black">ETB 145.50</span>
+                  <span className="text-[10px] uppercase font-black tracking-[0.2em] text-addis-muted block mb-1">{t.pendingBalance}</span>
+                  <span className="text-addis-text font-display text-2xl tracking-widest">ETB 145.50</span>
                 </div>
               </div>
-              <div className="bg-emerald-500/10 px-3 py-1 rounded-full">
-                <span className="text-emerald-500 text-[10px] font-black uppercase tracking-widest">Secured</span>
+              <div className="bg-emerald-500/20 brutal-border px-4 py-2">
+                <span className="text-emerald-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+                  <ShieldCheck size={14} />
+                  Secured
+                </span>
               </div>
             </div>
 
@@ -1763,10 +1896,10 @@ export default function App() {
                 setShowDriver(false);
                 setIsCalling(false);
               }}
-              className="w-full mt-10 h-12 rounded-xl bg-addis-text text-addis-dark font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-electric-yellow transition-all shadow-xl"
+              className="w-full mt-10 py-5 brutal-border bg-addis-text text-addis-dark font-display uppercase tracking-[0.2em] text-xl flex items-center justify-center gap-3 hover:bg-electric-yellow transition-all shadow-high-contrast"
             >
               <span>Complete Payment</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={24} />
             </button>
           </motion.div>
         )}
@@ -1783,11 +1916,11 @@ export default function App() {
             <div className="flex items-center gap-4 mb-10">
               <button 
                 onClick={() => setView('map')}
-                className="w-10 h-10 rounded-xl bg-addis-surface flex items-center justify-center text-addis-muted"
+                className="w-12 h-12 brutal-border bg-addis-surface flex items-center justify-center text-addis-text hover:bg-electric-yellow hover:text-addis-dark transition-all"
               >
-                <X size={20} />
+                <X size={24} />
               </button>
-              <h2 className="text-xl font-black tracking-tight text-addis-text">{t.settings}</h2>
+              <h2 className="text-3xl font-display tracking-tighter text-addis-text uppercase">{t.settings}</h2>
             </div>
 
             <div className="space-y-8">
@@ -1804,14 +1937,14 @@ export default function App() {
                 
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="w-full bg-addis-surface border border-addis-border rounded-[24px] p-2 flex items-center relative h-14"
+                  className="w-full bg-addis-surface brutal-border p-2 flex items-center relative h-16"
                 >
                   <motion.div
-                    animate={{ x: theme === 'dark' ? 'calc(100% - 44px)' : '0%' }}
+                    animate={{ x: theme === 'dark' ? 'calc(100% - 52px)' : '0%' }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    className="w-11 h-10 bg-electric-yellow rounded-2xl flex items-center justify-center text-addis-dark shadow-lg z-10"
+                    className="w-13 h-12 bg-electric-yellow brutal-border flex items-center justify-center text-addis-dark shadow-lg z-10"
                   >
-                    {theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
+                    {theme === 'dark' ? <Moon size={24} /> : <Sun size={24} />}
                   </motion.div>
                   
                   <div className="absolute inset-0 flex items-center justify-around px-4 pointer-events-none">
@@ -1826,23 +1959,23 @@ export default function App() {
                   <Globe size={16} className="text-electric-yellow" />
                   <h3 className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-text opacity-40">{t.language}</h3>
                 </div>
-                <div className="bg-addis-surface border border-addis-border rounded-2xl p-1 flex items-center relative h-11 overflow-hidden">
+                <div className="bg-addis-surface brutal-border p-1 flex items-center relative h-14 overflow-hidden">
                   <motion.div
                     animate={{ 
                       x: language === 'en' ? '0%' : language === 'am' ? '100%' : '200%',
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                    className="absolute inset-y-1 left-1 w-[calc(33.33%-2px)] bg-electric-yellow rounded-xl z-0 shadow-lg"
+                    className="absolute inset-y-1 left-1 w-[calc(33.33%-2px)] bg-electric-yellow brutal-border z-0 shadow-lg"
                   />
                   {[
-                    { id: 'en', label: 'English' },
-                    { id: 'am', label: 'አማርኛ' },
-                    { id: 'om', label: 'Oromo' }
+                    { id: 'en', label: 'EN' },
+                    { id: 'am', label: 'አማ' },
+                    { id: 'om', label: 'OM' }
                   ].map((lang) => (
                     <button
                       key={lang.id}
                       onClick={() => setLanguage(lang.id as any)}
-                      className={`flex-1 h-full relative z-10 font-black text-[9px] uppercase tracking-widest transition-colors duration-300 ${
+                      className={`flex-1 h-full relative z-10 font-black text-[12px] uppercase tracking-widest transition-colors duration-300 ${
                         language === lang.id ? 'text-addis-dark' : 'text-addis-muted hover:text-addis-text'
                       }`}
                     >
@@ -1851,137 +1984,32 @@ export default function App() {
                   ))}
                 </div>
               </div>
-
-              {/* Download & Export Section */}
-              <div className="pt-4 border-t border-addis-border/30">
-                <div className="flex items-center gap-2 mb-4 px-1">
-                  <Download size={16} className="text-electric-yellow" />
-                  <h3 className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-text opacity-40">{t.downloadExport}</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="bg-addis-surface/50 border border-addis-border/50 rounded-2xl p-4">
-                    <p className="text-[10px] text-addis-muted leading-relaxed mb-4 italic">
-                      {t.exportInstructions}
-                    </p>
-                    
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2 text-addis-text">
-                          <Github size={14} className="text-electric-yellow" />
-                          <span className="text-[10px] font-bold uppercase tracking-wider">GitHub</span>
-                        </div>
-                        <p className="text-[8px] text-addis-muted uppercase tracking-tighter">Sync your repo</p>
-                      </div>
-                      
-                      <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2 text-addis-text">
-                          <Download size={14} className="text-electric-yellow" />
-                          <span className="text-[10px] font-bold uppercase tracking-wider">ZIP Archive</span>
-                        </div>
-                        <p className="text-[8px] text-addis-muted uppercase tracking-tighter">Local backup</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button 
-                    onClick={() => setShowExportModal(true)}
-                    className="w-full bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-between hover:border-electric-yellow transition-all group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
-                        <Github size={16} />
-                      </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">{t.exportGithub}</span>
-                    </div>
-                    <ExternalLink size={14} className="text-addis-muted group-hover:text-electric-yellow transition-colors" />
-                  </button>
-
-                  <button 
-                    onClick={() => setShowExportModal(true)}
-                    className="w-full bg-addis-surface border border-addis-border rounded-2xl p-4 flex items-center justify-between hover:border-electric-yellow transition-all group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
-                        <Download size={16} />
-                      </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-addis-text">{t.downloadZip}</span>
-                    </div>
-                    <ArrowRight size={14} className="text-addis-muted group-hover:text-electric-yellow transition-colors" />
-                  </button>
-                </div>
-              </div>
             </div>
 
-            <div className="flex justify-center mt-12">
+            <div className="mt-12 space-y-4">
               <button 
-                onClick={() => setView('map')}
-                className="w-12 h-12 rounded-full border border-addis-border text-addis-text flex items-center justify-center hover:bg-addis-surface transition-all shadow-lg"
-                title={t.back}
+                onClick={() => {
+                  setUserEmail('');
+                  setPassword('');
+                  setView('login');
+                }}
+                className="w-full py-4 brutal-border bg-rose-500 text-white font-display text-lg tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-rose-600 transition-all shadow-high-contrast"
               >
-                <ArrowRight size={20} className="rotate-180" />
+                <LogOut size={20} />
+                <span>Log Out</span>
               </button>
+
+              <div className="flex justify-center">
+                <button 
+                  onClick={() => setView('map')}
+                  className="w-14 h-14 rounded-full brutal-border bg-addis-card text-addis-text flex items-center justify-center hover:bg-addis-surface transition-all shadow-lg"
+                  title={t.back}
+                >
+                  <ArrowRight size={24} className="rotate-180" />
+                </button>
+              </div>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showExportModal && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setShowExportModal(false)}
-              className="absolute inset-0 z-[115] bg-black/60 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute bottom-0 left-0 right-0 z-[120] bg-addis-card border-t border-addis-border rounded-t-[40px] p-8 pb-12 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
-            >
-              <div className="w-12 h-1.5 bg-addis-surface rounded-full mx-auto mb-8" />
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
-                  <Download size={24} />
-                </div>
-                <div>
-                  <h2 className="text-xl font-black tracking-tight text-addis-text">{t.downloadExport}</h2>
-                  <p className="text-[10px] uppercase tracking-widest text-addis-muted">Source Code Export</p>
-                </div>
-              </div>
-              
-              <div className="space-y-6 mb-10">
-                <div className="bg-addis-surface border border-addis-border rounded-2xl p-6">
-                  <p className="text-sm text-addis-text leading-relaxed mb-4">
-                    To download the source code or export to GitHub, please use the <strong>AI Studio Settings Menu</strong>:
-                  </p>
-                  <ol className="space-y-4 text-xs text-addis-muted list-decimal pl-4">
-                    <li>Look for the <strong>Settings (Gear Icon)</strong> in the top-right corner of the AI Studio interface.</li>
-                    <li>Select <strong>"Export to GitHub"</strong> to sync with your repository.</li>
-                    <li>Or select <strong>"Download ZIP"</strong> to get a local copy of the project.</li>
-                  </ol>
-                </div>
-                
-                <div className="flex items-center gap-3 p-4 bg-electric-yellow/5 border border-electric-yellow/20 rounded-2xl">
-                  <ShieldCheck size={20} className="text-electric-yellow flex-shrink-0" />
-                  <p className="text-[10px] text-addis-text italic">
-                    This ensures you always have the latest production-ready code for deployment.
-                  </p>
-                </div>
-              </div>
-
-              <button 
-                onClick={() => setShowExportModal(false)}
-                className="w-full bg-electric-yellow text-addis-dark font-black h-16 rounded-[24px] text-base uppercase tracking-widest shadow-[0_20px_40px_rgba(240,255,0,0.2)]"
-              >
-                Got it
-              </button>
-            </motion.div>
-          </>
         )}
       </AnimatePresence>
 
@@ -2016,36 +2044,36 @@ export default function App() {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute bottom-0 left-0 right-0 z-50 bg-addis-card border-t border-addis-border rounded-t-[40px] p-8 pb-12 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+              className="absolute bottom-0 left-0 right-0 z-50 bg-addis-card brutal-border border-b-0 p-8 pb-12 shadow-high-contrast"
             >
-              <div className="w-12 h-1.5 bg-addis-surface rounded-full mx-auto mb-8" />
+              <div className="w-16 h-2 bg-addis-surface brutal-border mx-auto mb-8" />
               
               <div className="flex items-start justify-between mb-8">
-                <div className="flex gap-5">
+                <div className="flex gap-6">
                   <div className="relative cursor-pointer group/avatar" onClick={() => setShowDriverProfileModal(true)}>
                     <img 
                       src={MOCK_DRIVER.image} 
                       alt={MOCK_DRIVER.name} 
-                      className="w-20 h-20 rounded-3xl object-cover border-2 border-electric-yellow group-hover/avatar:scale-105 transition-transform"
+                      className="w-28 h-28 brutal-border object-cover group-hover/avatar:scale-105 transition-transform"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute -bottom-2 -right-2 bg-electric-yellow text-addis-dark p-1.5 rounded-xl shadow-lg">
-                      <CheckCircle2 size={16} />
+                    <div className="absolute -bottom-4 -right-4 bg-electric-yellow text-addis-dark p-2.5 brutal-border shadow-high-contrast">
+                      <CheckCircle2 size={24} />
                     </div>
                   </div>
                   <div className="cursor-pointer">
                     <div onClick={() => setShowDriverProfileModal(true)}>
-                      <h2 className="text-2xl font-black tracking-tight mb-1 text-addis-text hover:text-electric-yellow transition-colors">{MOCK_DRIVER.name}</h2>
+                      <h2 className="text-2xl font-display tracking-tighter uppercase mb-2 text-addis-text hover:text-electric-yellow transition-colors">{MOCK_DRIVER.name}</h2>
                     </div>
                     
                     {/* Interactive Star Rating */}
-                    <div className="flex flex-col gap-2 mb-3">
-                      <div className="flex items-center gap-1">
+                    <div className="flex flex-col gap-3 mb-4">
+                      <div className="flex items-center gap-2">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <motion.button
                             key={star}
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{ scale: 1.3 }}
+                            whileTap={{ scale: 0.8 }}
                             onClick={() => {
                               setUserRating(star);
                               addNotification('Rating Submitted', `You rated ${MOCK_DRIVER.name} ${star} stars!`, 'success');
@@ -2055,11 +2083,11 @@ export default function App() {
                             className="focus:outline-none"
                           >
                             <Star 
-                              size={20} 
+                              size={28} 
                               className={`transition-colors ${
                                 star <= (hoverRating || userRating) 
                                   ? 'text-electric-yellow fill-electric-yellow' 
-                                  : 'text-addis-muted opacity-30'
+                                  : 'text-addis-muted opacity-20'
                               }`}
                             />
                           </motion.button>
@@ -2068,9 +2096,9 @@ export default function App() {
                           <motion.span 
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="text-[10px] font-black text-electric-yellow uppercase tracking-widest ml-2"
+                            className="text-xs font-black text-electric-yellow uppercase tracking-[0.2em] ml-3"
                           >
-                            Your Rating: {userRating}
+                            {userRating}/5
                           </motion.span>
                         )}
                       </div>
@@ -2119,18 +2147,46 @@ export default function App() {
                   >
                     <X size={16} />
                   </button>
-                  <div className="bg-electric-yellow/10 border border-electric-yellow/20 rounded-2xl px-4 py-2 flex flex-col items-center justify-center min-w-[80px] relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-full h-0.5 bg-electric-yellow/20 overflow-hidden">
-                      <motion.div 
-                        animate={{ x: ['-100%', '100%'] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        className="w-1/2 h-full bg-electric-yellow shadow-[0_0_10px_#f0ff00]"
-                      />
+                    <div className="bg-electric-yellow/10 border border-electric-yellow/20 rounded-2xl px-4 py-2 flex flex-col items-center justify-center min-w-[80px] relative overflow-hidden group">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={estimatedTime}
+                          initial={{ y: estimatedTime > lastEstimatedTime ? 10 : -10, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          className="flex flex-col items-center"
+                        >
+                          <span className={`font-black text-2xl leading-none transition-colors ${
+                            estimatedTime > lastEstimatedTime && lastEstimatedTime !== 0 ? 'text-rose-500' : 
+                            estimatedTime < lastEstimatedTime ? 'text-emerald-500' : 'text-electric-yellow'
+                          }`}>
+                            {estimatedTime}
+                          </span>
+                          <span className="text-electric-yellow/60 text-[8px] font-bold uppercase tracking-widest mt-1">Mins</span>
+                        </motion.div>
+                      </AnimatePresence>
+                      <div className="absolute top-0 left-0 w-full h-0.5 bg-electric-yellow/20 overflow-hidden">
+                        <motion.div 
+                          animate={{ x: ['-100%', '100%'] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                          className="w-1/2 h-full bg-electric-yellow shadow-[0_0_10px_#f0ff00]"
+                        />
+                      </div>
                     </div>
-                    <span className="text-electric-yellow font-black text-2xl leading-none">{estimatedTime}</span>
-                    <span className="text-electric-yellow/60 text-[8px] font-bold uppercase tracking-widest mt-1">Mins</span>
-                  </div>
-                  <span className="text-[7px] font-black text-addis-muted uppercase tracking-[0.2em] mt-1">Dynamic ETA</span>
+                    <div className="flex flex-col items-end">
+                      <span className="text-[7px] font-black text-addis-muted uppercase tracking-[0.2em] mt-1">Dynamic ETA</span>
+                      <AnimatePresence>
+                        {trafficEvent && (
+                          <motion.span
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            className="text-[6px] font-black text-rose-500 uppercase tracking-widest mt-0.5"
+                          >
+                            {trafficEvent}
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </div>
                 </div>
               </div>
 
@@ -2161,21 +2217,22 @@ export default function App() {
                 </button>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <button 
                   onClick={() => {
                     setView('payment');
                     addNotification(t.newOrder, `Order for ${location} has been confirmed.`, 'info');
                   }}
-                  className="flex-1 h-12 rounded-xl bg-electric-yellow text-addis-dark font-black uppercase tracking-tighter text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="flex-1 py-5 brutal-border bg-electric-yellow text-addis-dark font-display text-xl uppercase tracking-widest flex items-center justify-center gap-3 hover:translate-x-1 hover:-translate-y-1 transition-all shadow-high-contrast"
                 >
                   {t.confirmOrder}
+                  <ArrowRight size={24} />
                 </button>
-                <button className="w-12 h-12 rounded-xl bg-addis-surface border border-addis-border flex items-center justify-center text-addis-text hover:bg-addis-surface/80 transition-colors">
-                  <Phone size={18} />
+                <button className="w-16 h-16 brutal-border bg-addis-surface flex items-center justify-center text-addis-text hover:bg-emerald-500 hover:text-white transition-all">
+                  <Phone size={24} />
                 </button>
-                <button className="w-12 h-12 rounded-xl bg-addis-surface border border-addis-border flex items-center justify-center text-addis-text hover:bg-addis-surface/80 transition-colors">
-                  <MessageSquare size={18} />
+                <button className="w-16 h-16 brutal-border bg-addis-surface flex items-center justify-center text-addis-text hover:bg-blue-500 hover:text-white transition-all">
+                  <MessageSquare size={24} />
                 </button>
               </div>
             </motion.div>
@@ -2184,24 +2241,24 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer Navigation (Mobile Style) */}
-      <nav className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-addis-dark to-transparent h-24 flex items-center justify-around px-8 pointer-events-none">
+      <nav className="absolute bottom-0 left-0 right-0 z-30 bg-addis-dark brutal-border border-x-0 border-b-0 h-24 flex items-center justify-around px-8 shadow-high-contrast">
         <button 
           onClick={() => setView('map')}
           className={`pointer-events-auto flex flex-col items-center gap-1 transition-all ${view === 'map' ? 'text-electric-yellow' : 'text-addis-muted opacity-50 hover:opacity-100'}`}
         >
-          <Navigation size={24} />
-          <span className="text-[8px] font-bold uppercase tracking-widest">Home</span>
+          <Navigation size={28} strokeWidth={view === 'map' ? 3 : 2} />
+          <span className="text-[9px] font-black uppercase tracking-widest">Home</span>
         </button>
         <div className="pointer-events-auto flex flex-col items-center gap-1 text-addis-muted opacity-50">
-          <Clock size={24} />
-          <span className="text-[8px] font-bold uppercase tracking-widest">Orders</span>
+          <Clock size={28} />
+          <span className="text-[9px] font-black uppercase tracking-widest">Orders</span>
         </div>
         <button 
           onClick={() => setView('settings')}
           className={`pointer-events-auto flex flex-col items-center gap-1 transition-all ${view === 'settings' ? 'text-electric-yellow' : 'text-addis-muted opacity-50 hover:opacity-100'}`}
         >
-          <Settings size={24} />
-          <span className="text-[8px] font-bold uppercase tracking-widest">Settings</span>
+          <Settings size={28} strokeWidth={view === 'settings' ? 3 : 2} />
+          <span className="text-[9px] font-black uppercase tracking-widest">Settings</span>
         </button>
       </nav>
 
@@ -2220,23 +2277,23 @@ export default function App() {
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: '-50%', opacity: 1 }}
               exit={{ y: '100%', opacity: 0 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-[90%] max-w-md bg-addis-card border border-addis-border rounded-[40px] p-8 shadow-2xl overflow-hidden"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-[95%] max-w-md bg-addis-card brutal-border p-8 shadow-high-contrast overflow-hidden"
             >
               <div className="flex justify-between items-center mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
-                    <User size={20} />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 brutal-border bg-electric-yellow/10 flex items-center justify-center text-electric-yellow">
+                    <User size={24} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-black tracking-tight text-addis-text">Driver Profile</h3>
-                    <p className="text-[10px] uppercase tracking-widest text-addis-muted">Verified Professional</p>
+                    <h3 className="text-xl font-display tracking-widest uppercase text-addis-text">Driver Profile</h3>
+                    <p className="text-[10px] uppercase tracking-[0.2em] font-black text-addis-muted">Verified Professional</p>
                   </div>
                 </div>
                 <button 
                   onClick={() => setShowDriverProfileModal(false)}
-                  className="w-10 h-10 rounded-full bg-addis-surface flex items-center justify-center text-addis-muted hover:text-addis-text transition-colors"
+                  className="w-12 h-12 brutal-border bg-addis-surface flex items-center justify-center text-addis-muted hover:text-addis-text transition-all"
                 >
-                  <X size={20} />
+                  <X size={24} />
                 </button>
               </div>
 
@@ -2245,17 +2302,17 @@ export default function App() {
                 <img 
                   src={MOCK_DRIVER.image} 
                   alt={MOCK_DRIVER.name} 
-                  className="w-24 h-24 rounded-[32px] object-cover border-2 border-electric-yellow shadow-lg"
+                  className="w-28 h-28 brutal-border object-cover shadow-lg"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h2 className="text-2xl font-black tracking-tight text-addis-text mb-1">{MOCK_DRIVER.name}</h2>
+                  <h2 className="text-3xl font-display tracking-widest uppercase text-addis-text mb-1">{MOCK_DRIVER.name}</h2>
                   <div className="flex items-center gap-2 text-electric-yellow mb-2">
-                    <Star size={16} fill="currentColor" />
-                    <span className="font-bold">{MOCK_DRIVER.rating} Rating</span>
+                    <Star size={20} fill="currentColor" />
+                    <span className="font-black text-lg">4.9 Rating</span>
                   </div>
-                  <div className="flex items-center gap-2 text-addis-muted text-xs uppercase tracking-widest">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <div className="flex items-center gap-2 text-addis-muted text-[10px] font-black uppercase tracking-widest">
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Background Checked</span>
                   </div>
                 </div>
